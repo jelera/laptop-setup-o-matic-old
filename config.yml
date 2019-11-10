@@ -1,0 +1,16 @@
+---
+  os-supported:
+    # Linux:
+    # -----
+    - ubuntu
+    - arch
+    # MacOS:
+    # -----
+    - elcapitan
+  features:
+    # Options
+    # -------
+    # - dev: installs only a development environment
+    # - desktop: installs only desktop software
+    # - all: will install everything
+    - all

@@ -1,0 +1,77 @@
+#!/bin/bash
+
+function color_echo(){
+# Usage  : color_echo "string" <color>
+# Credit : http://stackoverflow.com/a/23006365/428786
+	local exp=$1;
+	local color=$2;
+	if ! [[ $color =~ ^[0-9]$ ]] ; then
+	case $(echo "$color" | tr '[:upper:]' '[:lower:]') in
+		black) color=0 ;;
+		red) color=1 ;;
+		green) color=2 ;;
+		yellow) color=3 ;;
+		blue) color=4 ;;
+		magenta) color=5 ;;
+		cyan) color=6 ;;
+	white|*) color=7 ;; # white or invalid color
+	esac
+	fi
+
+  echo
+	tput setaf $color;
+	printf "\n%s\n" "$exp"
+	tput sgr0;
+}
+
+
+OS="$(uname)"
+case $OS in
+  #===================================================#
+  #
+  # => Linux Support
+  #
+  #===================================================#
+  'Linux')
+    OS='Linux'
+    if [ -f /etc/os-release ]; then
+        # shellcheck disable=SC1091
+        . /etc/os-release
+        DISTRO=$ID
+        if [ "$DISTRO" == "ubuntu" ]; then
+          color_echo "Installing Ruby ..." cyan
+            sudo apt install -y ruby
+
+          color_echo "Installing gems for this install script" cyan
+            cd install_scripts
+            bundle install
+            cd -
+
+          ruby ./install_scripts/initial_setup.rb
+          ruby ./install_scripts/dotfiles.rb
+
+          exit 0
+        else
+          >&2 echo "Your Linux distro is not supported"
+          exit 1
+        fi
+    else
+      >&2 echo "Your Linux distro is not supported"
+      exit 1
+    fi
+    ;;
+  #===================================================#
+  #
+  # => MacOS Support
+  #
+  #===================================================#
+  'Darwin') 
+    OS='Mac'
+    # Install Homebrew
+    # Install Ruby
+    ;;
+  *)
+    >&2 echo "Your OS is not supported"
+    exit 1
+    ;;
+esac
