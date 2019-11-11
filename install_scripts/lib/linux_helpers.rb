@@ -2,7 +2,7 @@
 
 #:nodoc:
 module LinuxOS
-  def parse_release_file
+  def self.parse_release_file
     release_file = '/etc/os-release'
     output = {}
     File.read(release_file).each_line do |line|
@@ -12,15 +12,15 @@ module LinuxOS
     output
   end
 
-  def distro
+  def self.distro
     parse_release_file[:ID]
   end
 
-  def version
+  def self.version
     parse_release_file[:VERSION_ID]
   end
 
-  def install_packages(package_list)
+  def self.install_packages(package_list)
     install_command = ''
 
     case distro
