@@ -99,6 +99,22 @@ end
 def install_npm(package_name)
   system("npm install -g #{package_name}")
 end
+def install_linters
+  subtitle 'Installing Prettier ...'
+  install_npm('prettier')
+
+  subtitle 'Installing Pylint ...'
+  system('pip3 install pylint')
+
+  subtitle 'Installing Rubocop ...'
+  install_gem('solargraph')
+  install_gem('rubocop')
+
+  subtitle 'Installing ShellCheck ...'
+  install_packages(
+    snap: ['shellcheck']
+  )
+end
 
 def install_npm_packages
   subtitle 'Upgrading npm with npm'
