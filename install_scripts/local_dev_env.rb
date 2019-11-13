@@ -135,6 +135,15 @@ def install_npm_packages
   subtitle 'Install BrowserSync, a CTAGS generator for JS Sources ...'
   install_npm('browser-sync')
 
+  subtitle 'Install Commonmark, a superset of Markdown ...'
+  install_npm('commonmark')
+
+  subtitle 'Install Commonmark, a superset of Markdown ...'
+  install_npm('commonmark')
+
+  subtitle 'Install write-good ...'
+  install_npm('write-good')
+
   subtitle 'Install create-react-app ...'
   system('yarn global add create-react-app')
 
