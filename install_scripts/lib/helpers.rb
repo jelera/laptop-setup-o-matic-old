@@ -43,9 +43,9 @@ def os_supported?
   settings['os-supported'].include? LinuxOS.distro
 end
 
-def install_packages(ubuntu: [], arch: [], mac: [])
+def install_packages(ubuntu: [], snap: [], arch: [], aur: [], flatpak: [], mac: [])
   if os_is_linux?
-    LinuxOS.install_packages ubuntu
+    LinuxOS.install_packages(ubuntu, snap, flatpak, arch, aur)
   # elsif os_is_mac?
   #   ""
   end
