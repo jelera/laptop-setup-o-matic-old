@@ -166,6 +166,9 @@ def main
 
   subtitle 'Installing NPM packages for Node.JS  asdf ...'
   install_npm_packages
+
+  subtitle 'Installing Linters ... '
+  install_linters
 end
 
 main
