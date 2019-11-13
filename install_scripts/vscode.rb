@@ -3,8 +3,17 @@
 
 require_relative 'lib/helpers'
 
-def main
+def install_vscode
+  install_packages(
+    snap: %w[
+      code
+      --classic
+    ]
+  )
+end
 
+def main
+  install_vscode
 end
 
 main
