@@ -43,6 +43,7 @@ case $OS in
             sudo apt install -y ruby
 
           color_echo "Installing gems for this install script" cyan
+		  	sudo gem install bundler
             cd install_scripts
             bundle install
             cd -
