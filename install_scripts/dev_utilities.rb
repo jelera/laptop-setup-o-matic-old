@@ -7,7 +7,6 @@ def install_virtualbox
   if os_is_linux?
     case LinuxOS.distro
     when 'ubuntu'
-
       if LinuxOS.version == '18.04'
         system('sudo apt-add-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"')
       end
@@ -22,7 +21,6 @@ def install_virtualbox
     ubuntu: ['virtualbox-6.0']
   )
 end
-
 
 def install_dev_software
   subtitle 'Installing GNUPG ...'
@@ -84,26 +82,19 @@ def install_dev_software
   subtitle 'Installing Virtualbox 6 ...'
   install_virtualbox
 
-  subtitle 'Installing Vagrant ...'
-  install_packages(
-    ubuntu: ['vagrant']
-  )
-
   subtitle 'Installing xcape ...'
   install_packages(
     ubuntu: ['xcape']
   )
 
-  # subtitle 'Install vccw, for Wordpress development...'
-  # system('vagrant plugin install vagrant-hostupdater')
-  # system('vagrant box add vccw-team/xenial64')
-
+  subtitle 'Installing PostgreSQL ...'
+  install_packages(
+    ubuntu: %w[postgresql postgresql-contrib]
+  )
 end
 
 def main
   install_dev_software
-  # subtitle 'Installing Linters'
-  # install_linters
 end
 
 main
