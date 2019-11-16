@@ -63,9 +63,6 @@ def install_ruby_asdf
   system("bundle config --global jobs #{number_of_cores - 1}")
 end
 
-def install_gem(gem_name)
-  system("gem install #{gem_name}")
-end
 
 def install_rubygems_asdf
   subtitle 'Installing Nokogiri'
@@ -99,56 +96,10 @@ end
 def install_npm(package_name)
   system("npm install -g #{package_name}")
 end
-def install_linters
-  subtitle 'Installing Prettier ...'
-  install_npm('prettier')
-
-  subtitle 'Installing Pylint ...'
-  system('pip3 install pylint')
-
-  subtitle 'Installing Rubocop ...'
-  install_gem('solargraph')
-  install_gem('rubocop')
-
-  subtitle 'Installing ShellCheck ...'
-  install_packages(
-    snap: ['shellcheck']
-  )
-end
 
 def install_npm_packages
-  subtitle 'Upgrading npm with npm'
-  install_npm('npm')
-
-  subtitle 'Installing Yarn, a Fast and Reliable Dependency Manager ...'
-  install_npm('yarn')
-
-  subtitle 'Installing Tern, Code-analysis engine for JavaScript ...'
-  install_npm('tern')
-
-  subtitle 'Install Sass, a CSS Preprocessor ...'
-  install_npm('sass')
-
-  subtitle 'Install JSCtags, a CTAGS generator for JS Sources ...'
-  install_npm('git+https://github.com/ramitos/jsctags.git')
-
-  subtitle 'Install BrowserSync, a CTAGS generator for JS Sources ...'
-  install_npm('browser-sync')
-
-  subtitle 'Install Commonmark, a superset of Markdown ...'
-  install_npm('commonmark')
-
-  subtitle 'Install Commonmark, a superset of Markdown ...'
-  install_npm('commonmark')
-
-  subtitle 'Install write-good ...'
-  install_npm('write-good')
-
   subtitle 'Install create-react-app ...'
   system('yarn global add create-react-app')
-
-  subtitle 'Install Prettier ...'
-  system('yarn global add prettier')
 end
 
 def main
@@ -166,9 +117,6 @@ def main
 
   subtitle 'Installing NPM packages for Node.JS  asdf ...'
   install_npm_packages
-
-  subtitle 'Installing Linters ... '
-  install_linters
 end
 
 main
