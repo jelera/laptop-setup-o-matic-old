@@ -136,13 +136,14 @@ def install_destkop_software
       arj
       lunzip
       lzip
-  ])
+    ]
+  )
 
   subtitle 'Installing Par, a text formatter filter ...'
   install_packages(ubuntu: ['par'])
 
   subtitle 'Installing Pandoc, The swiss armyknife document exporter ...'
-  install_packages(ubuntu: %w[ pandoc texlive ])
+  install_packages(ubuntu: %w[pandoc texlive])
 
   subtitle 'Installing Zeal Documentation Browser ... '
   install_zeal
