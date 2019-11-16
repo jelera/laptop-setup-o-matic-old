@@ -25,10 +25,7 @@ def backup_exisiting_dotfiles
   ]
 
   if Dir.exist? old_dotfiles_dir
-    if Dir.exist? older_dotfiles_dir
-      FileUtils.rm_rf(older_dotfiles_dir)
-    end
-
+    FileUtils.rm_rf(older_dotfiles_dir) if Dir.exist? older_dotfiles_dir
     FileUtils.mv(old_dotfiles_dir, older_dotfiles_dir, force: true)
   end
   FileUtils.mkdir(old_dotfiles_dir)
