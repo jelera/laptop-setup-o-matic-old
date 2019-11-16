@@ -65,12 +65,18 @@ def install_vim
 end
 
 def install_dotvim
-  dotvim_github_url = 'git@github.com:jelera/vimconfig.git'
+  dotvim_github_ssh_url = 'git@github.com:jelera/vimconfig.git'
+  dotvim_github_html_url = 'https://github.com/jelera/vimconfig.git'
   dotvim_symlink_dir = File.join(Dir.home, '.vim')
   dotfiles_dir = File.join(Dir.home, '.config', 'dotfiles')
   dotvim_dir = File.join(dotfiles_dir, 'vim')
+  gitconfig = File.absolute_path(File.join(Dir.home, '.gitconfig'))
 
-  system("git clone #{dotvim_github_url} #{dotvim_dir}")
+  if File.exist? gitconfig
+    system("git clone #{dotvim_github_ssh_url} #{dotvim_dir}")
+  else
+    system("git clone #{dotvim_github_html_url} #{dotvim_dir}")
+  end
 
   FileUtils.symlink(dotvim_dir, dotvim_symlink_dir)
 
@@ -126,8 +132,6 @@ def install_coc_nvim_sources
     coc-prettier
   ])
 end
-
-binding.pry
 
 def main
   subtitle 'Installing Vim, the best test editor in the world ...'
