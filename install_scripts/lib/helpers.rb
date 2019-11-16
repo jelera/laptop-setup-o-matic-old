@@ -7,7 +7,6 @@ require 'etc'
 require 'yaml'
 require 'colorize'
 require 'fileutils'
-require 'pry'
 
 def settings
   YAML.safe_load(File.read('../config.yml'))
@@ -94,6 +93,3 @@ def install_npm(local:[], global:[])
 
   system("#{npm_command} install #{global_flag} #{packages}")
 end
-
-binding.pry
-

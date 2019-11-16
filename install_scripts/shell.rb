@@ -2,7 +2,6 @@
 # frozen_string_literal: true
 
 require_relative './lib/helpers'
-require 'pry'
 
 def is_zsh_in_shells_file?
   shells_file = '/etc/shells'
