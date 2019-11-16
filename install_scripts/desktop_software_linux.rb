@@ -153,10 +153,11 @@ def install_destkop_software
 
   subtitle 'Installing Wine, Wine is not an Emulator ... '
   # install_wine
-  install_packages(ubuntu: ['wine'])
+  install_packages(ubuntu: ['wine-stable'])
 
-  # subtitle 'Installing PlayOnLinux, a Frontend for Wine ...'
+  subtitle 'Installing PlayOnLinux, a Frontend for Wine ...'
   # install_playonlinux
+  install_packages(ubuntu: ['playonlinux'])
 end
 
 def main
