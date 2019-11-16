@@ -55,7 +55,6 @@ def install_dev_libraries
 end
 
 def install_ruby_dev
-
   install_packages(
     ubuntu: %w[
       ruby
@@ -76,6 +75,16 @@ def install_python_dev
   )
 end
 
+def install_node_dev
+  install_packages(
+    snap: %w[
+      node
+      --classic
+      --channel=12
+    ]
+  )
+end
+
 def main
   subtitle 'Installing Essential Tools for Building and Compiling ...'
   install_essential_dev_tools
@@ -88,6 +97,9 @@ def main
 
   subtitle 'Installing Python 3 and its Development Libraries ...'
   install_python_dev
+
+  subtitle 'Installing Node.js 12 and its Development Libraries ...'
+  install_node_dev
 end
 
 main
