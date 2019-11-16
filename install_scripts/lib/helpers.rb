@@ -51,7 +51,49 @@ def install_packages(ubuntu: [], snap: [], arch: [], aur: [], flatpak: [], mac: 
   end
 end
 
+def install_gem(local:[], global:[])
+  gem_command = 'gem'
+  packages = ''
 
+  if !local.empty?
+    packages = local.join(' ')
+  elsif !global.empty?
+    gem_command = "sudo #{gem_command}"
+    packages = global.join(' ')
+  end
+
+  system("#{gem_command} install #{packages}")
+end
+
+def install_pip(local:[], global:[])
+  pip_command = 'pip'
+  pip_command = 'pip3' if LinuxOS.distro == 'ubuntu'
+
+  if !local.empty?
+    packages = local.join(' ')
+  elsif !global.empty?
+    pip_command = "sudo #{pip_command}"
+    packages = global.join(' ')
+  end
+
+  system("#{pip_command} install #{packages}")
+end
+
+def install_npm(local:[], global:[])
+  npm_command = 'npm'
+  global_flag = ''
+  packages = ''
+
+  if !local.empty?
+    packages = local.join(' ')
+  elsif !global.empty?
+    npm_command = "sudo #{npm_command}"
+    global_flag = '--global'
+    packages = global.join(' ')
+  end
+
+  system("#{npm_command} install #{global_flag} #{packages}")
+end
 
 binding.pry
 
