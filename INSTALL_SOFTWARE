@@ -52,12 +52,13 @@ case $OS in
           ruby ./install_scripts/shell.rb
           ruby ./install_scripts/git.rb
           ruby ./install_scripts/dev_libraries.rb
-          ruby ./install_scripts/local_dev_env.rb
+          ruby ./install_scripts/dev_linters.rb
           ruby ./install_scripts/vim.rb
           ruby ./install_scripts/vscode.rb
-          ruby ./install_scripts/development_software.rb
+          ruby ./install_scripts/dev_utilities.rb
+          ruby ./install_scripts/dev_local_env.rb
           ruby ./install_scripts/desktop_software_linux.rb
-          ruby ./install_scripts/anaconda_python.rb
+          # ruby ./install_scripts/anaconda_python.rb
 
           exit 0
         else
