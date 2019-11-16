@@ -87,8 +87,8 @@ def install_destkop_software
   subtitle 'Installing Skype ...'
   install_packages(snap: %w[skype --classic])
 
-  subtitle 'Installing Dropbox ...'
-  install_packages(ubuntu: ['dropbox'])
+  # subtitle 'Installing Dropbox ...'
+  # install_packages(ubuntu: ['dropbox'])
 
   # -------------------------------------------------------------------------- #
   # => Internet
