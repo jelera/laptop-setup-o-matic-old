@@ -56,12 +56,12 @@ def install_linters
   # -------------------------------------------------------------------------- #
   subtitle 'Installing Pylint ...'
   install_pip(
-    global: ['pylint']
+    local: ['pylint']
   )
 
   subtitle 'Installing Flake8 ...'
   install_pip(
-    global: ['flake8']
+    local: ['flake8']
   )
 
   # -------------------------------------------------------------------------- #
@@ -114,7 +114,7 @@ def install_linters
   # -------------------------------------------------------------------------- #
   subtitle 'Installing Gitlint ...'
   install_pip(
-    global: ['gitlint']
+    local: ['gitlint']
   )
 
   # -------------------------------------------------------------------------- #
@@ -122,7 +122,7 @@ def install_linters
   # -------------------------------------------------------------------------- #
   subtitle 'Installing Vim-vint ...'
   install_pip(
-    global: ['vim-vint']
+    local: ['vim-vint']
   )
 
   # -------------------------------------------------------------------------- #
@@ -140,7 +140,7 @@ def install_linters
 
   subtitle 'Install proselint ...'
   install_pip(
-    global: ['proselint']
+    local: ['proselint']
   )
 end
 
@@ -180,7 +180,7 @@ end
 
 def install_global_pip_packages
   install_pip(
-    global: ['youtube-dl']
+    local: ['youtube-dl']
   )
 end
 
