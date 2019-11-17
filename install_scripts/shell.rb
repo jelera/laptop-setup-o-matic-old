@@ -18,7 +18,7 @@ def update_zsh_as_default
 
   subtitle 'Changing the default shell to ZSH ...'
 
-  if is_zsh_in_shells_file?
+  unless is_zsh_in_shells_file?
     subtitle "Adding #{shell_path} to /etc/shells"
     system("sudo sh -c echo #{shell_path} >> /etc/shells")
   end
