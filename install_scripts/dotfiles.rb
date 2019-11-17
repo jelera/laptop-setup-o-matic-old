@@ -59,7 +59,7 @@ def create_symlinks
   # ~/.bin folder
   FileUtils.symlink(
     File.join(dotfiles_dir, 'bin'),
-    File.join(dotfiles_dir, '.bin')
+    File.join(home_dir, '.bin')
   )
 
   # -------------------------------------------------------------------------- #
@@ -69,19 +69,19 @@ def create_symlinks
   # .profile
   FileUtils.symlink(
     File.join(dotfiles_dir, 'bash', 'bash_profile'),
-    File.join(dotfiles_dir, '.profile')
+    File.join(home_dir, '.profile')
   )
 
   # .bashrc
   FileUtils.symlink(
     File.join(dotfiles_dir, 'bash', 'bashrc'),
-    File.join(dotfiles_dir, '.bashrc')
+    File.join(home_dir, '.bashrc')
   )
 
   # .zshrc
   FileUtils.symlink(
     File.join(dotfiles_dir, 'zsh', 'zshrc'),
-    File.join(dotfiles_dir, '.zshrc')
+    File.join(home_dir, '.zshrc')
   )
 
   # -------------------------------------------------------------------------- #
@@ -91,13 +91,13 @@ def create_symlinks
   # .gitconfig
   FileUtils.symlink(
     File.join(dotfiles_dir, 'gitconfig', 'gitconfig'),
-    File.join(dotfiles_dir, '.gitconfig')
+    File.join(home_dir, '.gitconfig')
   )
 
   # .gitignore global
   FileUtils.symlink(
     File.join(dotfiles_dir, 'gitconfig', 'gitignore'),
-    File.join(dotfiles_dir, '.gitignore_global')
+    File.join(home_dir, '.gitignore_global')
   )
 
   # -------------------------------------------------------------------------- #
@@ -107,7 +107,7 @@ def create_symlinks
   # .tmux.conf
   FileUtils.symlink(
     File.join(dotfiles_dir, 'tmux', 'tmux.conf'),
-    File.join(dotfiles_dir, '.tmux.conf')
+    File.join(home_dir, '.tmux.conf')
   )
 end
 
