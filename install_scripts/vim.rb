@@ -44,14 +44,14 @@ def install_vim
     puts 'Purge vim from Ubuntu 18.04'.colorize(:light_green).bold
     purge_vim_from_ubuntu
     puts ''
-    # puts 'Compile Vim from Source'.colorize(:light_green).bold
-    # compile_vim_from_source
+    puts 'Compile Vim from Source'.colorize(:light_green).bold
+    compile_vim_from_source
 
-    install_packages(
-      flatpak: %w[
-        org.vim.Vim
-      ]
-    )
+    # install_packages(
+    #   flatpak: %w[
+    #     org.vim.Vim
+    #   ]
+    # )
   else
     install_packages(
       ubuntu: %w[
