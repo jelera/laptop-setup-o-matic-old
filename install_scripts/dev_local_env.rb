@@ -66,22 +66,22 @@ end
 
 def install_rubygems_asdf
   subtitle 'Installing Nokogiri'
-  install_gem('nokogiri')
+  install_gem( local: ['nokogiri'])
 
   subtitle 'Installing Sinatra'
-  install_gem('sinatra')
+  install_gem( local: ['sinatra'])
 
   subtitle 'Installing Rails'
-  install_gem('rails')
+  install_gem( local: ['rails'])
 
   subtitle 'Installing Rubocop'
-  install_gem('rubocop')
+  install_gem( local: ['rubocop'])
 
   subtitle 'Installing Pry'
-  install_gem('pry')
+  install_gem( local: ['pry'])
 
   subtitle 'Installing Solargraph'
-  install_gem('solargraph')
+  install_gem( local: ['solargraph'])
 end
 
 def install_nodejs_asdf
