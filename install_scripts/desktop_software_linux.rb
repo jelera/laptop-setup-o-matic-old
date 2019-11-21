@@ -19,7 +19,7 @@ def install_fonts
 end
 
 def install_zeal
-  if LinuxOS.distro == 'ubuntu'
+  if LinuxOS.is_ubuntu?
     system('sudo add-apt-repository -y ppa:zeal-developers/ppa')
     system('sudo apt-get update -y')
     install_packages( ubuntu: ['zeal'] )
