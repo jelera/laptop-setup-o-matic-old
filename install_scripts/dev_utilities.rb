@@ -7,7 +7,7 @@ def install_virtualbox
   if os_is_linux?
     case LinuxOS.distro
     when 'ubuntu'
-      if LinuxOS.version == '18.04'
+      if LinuxOS.is_ubuntu_bionic?
         system('sudo apt-add-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"')
       end
 
