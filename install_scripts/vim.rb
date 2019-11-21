@@ -39,7 +39,7 @@ def compile_vim_from_source
 end
 
 def install_vim
-  if LinuxOS.distro == 'ubuntu' && LinuxOS.version == '18.04'
+  if LinuxOS.is_ubuntu_bionic?
     subtitle 'Installing Vim in Ubuntu 18.04 ...'
     puts 'Purge vim from Ubuntu 18.04'.colorize(:light_green).bold
     purge_vim_from_ubuntu
