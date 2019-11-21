@@ -189,6 +189,9 @@ end
 # end
 
 def main
+	if LinuxOS.is_ubuntu?
+		system('pip3 install --upgrade setuptools')
+	end
   subtitle 'Installing Linters ... '
   install_linters
 
