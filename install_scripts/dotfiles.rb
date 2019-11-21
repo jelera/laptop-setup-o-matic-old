@@ -117,6 +117,8 @@ def main
   subtitle 'Backing up existing dotfiles to ~/.dotfiles.old'
   backup_exisiting_dotfiles
 
+  system('git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh')
+
   subtitle 'Creating the symlinks to the dotfiles...'
   create_symlinks
 end
