@@ -104,6 +104,8 @@ def create_symlinks
   # => TMUX
   # -------------------------------------------------------------------------- #
 
+  # TPM (tmux plugin manager)
+  system('git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm')
   # .tmux.conf
   FileUtils.symlink(
     File.join(dotfiles_dir, 'tmux', 'tmux.conf'),
