@@ -23,7 +23,7 @@ def update_zsh_as_default
     system("sudo sh -c echo #{shell_path} >> /etc/shells")
   end
 
-  system("sudo chsh -s #{shell_path} #{current_user}")
+  system("chsh -s #{shell_path} #{current_user}")
 end
 
 def set_zsh_as_default_shell
