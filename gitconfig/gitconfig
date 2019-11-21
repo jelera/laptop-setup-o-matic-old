@@ -34,9 +34,8 @@
 	ap = add --patch
 	b = branch
 	ba = branch -a
-	c = commit
+	c = commit -v
 	ca = commit -a
-	ci = commit -v
 	cl = clone
 	co = checkout
 	l = pull
