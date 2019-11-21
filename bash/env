@@ -1,6 +1,7 @@
 export EDITOR=vim
-# export PATH=/usr/bin/:/usr/local:/usr/local/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.bin:$PATH
-export PATH=/usr/local/bin/:/usr/local:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.bin:$PATH
+# export PATH=/usr/local/bin/:/usr/local:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$HOME/.bin:/snap/bin:$PATH
+export PATH=$PATH:$HOME/.bin
+
 
 # for tmux: export 256color
 export TERM=xterm-256color

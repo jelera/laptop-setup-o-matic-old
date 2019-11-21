@@ -5,7 +5,7 @@
 #               / /    _  | |_) | (_| \__ \ | | | | | (__
 #              /_/    (_) |_.__/ \__,_|___/_| |_|_|  \___|
 #
-# Last Updated: Fri 20 Sep 2019 10:28:09 AM CDT
+# Last Updated: Wed 20 Nov 2019 04:36:16 PM CST
 #
 #   Maintainer: Jose Elera (https://github.com/jelera)
 #
@@ -146,32 +146,7 @@ sysinfo
 if [[ -e /etc/motd && -s /etc/motd ]]; then
 	echo -ne "${bldgrn}";cat /etc/motd
 fi
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jelera/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jelera/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jelera/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jelera/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
