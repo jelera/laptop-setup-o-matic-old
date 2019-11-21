@@ -66,7 +66,7 @@ end
 
 def install_pip(local:[], global:[])
   pip_command = 'pip'
-  pip_command = 'pip3' if LinuxOS.distro == 'ubuntu'
+  pip_command = 'pip3' if LinuxOS.is_ubuntu?
 
   if !local.empty?
     packages = local.join(' ')

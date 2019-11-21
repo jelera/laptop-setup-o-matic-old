@@ -6,8 +6,8 @@ require_relative 'lib/helpers'
 def install_flatpak
   subtitle 'Installing Flatpak support ...'
 
-  if LinuxOS.distro == 'ubuntu'
-    if LinuxOS.version == '18.04'
+  if LinuxOS.is_ubuntu?
+    if LinuxOS.is_ubuntu_bionic?
       system('sudo add-apt-repository -y ppa:alexlarsson/flatpak')
       system('sudo apt update -y')
     end
@@ -18,7 +18,7 @@ def install_flatpak
 end
 
 def install_snappy
-  if LinuxOS.distro == 'ubuntu'
+  if LinuxOS.is_ubuntu?
     subtitle 'Enabling Snap Packages ...'
     system('sudo apt install -y snapd')
   elsif Linux.distro == 'arch'
@@ -33,7 +33,7 @@ end
 
 def main
   if os_is_linux?
-    if LinuxOS.distro == 'ubuntu'
+    if LinuxOS.is_ubuntu?
       initial_setup_ubuntu
     elsif os_is_linux?
       puts 'add functionatlity for Arch here'
