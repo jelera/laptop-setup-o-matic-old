@@ -30,7 +30,7 @@ module LinuxOS
     aur_packages = aur
 
     case LinuxOS.distro
-    when 'ubuntu'
+    when 'ubuntu', 'linuxmint'
       if !ubuntu_packages.empty?
         install_command = "sudo apt install -y #{ubuntu_packages.join(' ')}"
       elsif !snap_packages.empty?
@@ -47,5 +47,13 @@ module LinuxOS
     end
 
     system(install_command)
+  end
+
+  def self.is_ubuntu?
+	distro == 'ubuntu' || distro == 'linuxmint'
+  end
+
+  def self.is_ubuntu_bionic?
+    (version.include? '19' || version == '18.04')
   end
 end
