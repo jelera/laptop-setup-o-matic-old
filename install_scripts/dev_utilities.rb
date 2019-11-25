@@ -13,7 +13,7 @@ def install_virtualbox
 ')
       end
 
-      system('sudo apt update -y')
+      system('sudo apt update')
     end
   end
 
