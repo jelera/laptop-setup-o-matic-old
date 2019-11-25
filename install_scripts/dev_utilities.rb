@@ -8,11 +8,11 @@ def install_virtualbox
     case LinuxOS.distro
     when 'ubuntu'
       if LinuxOS.is_ubuntu_bionic?
-        system('sudo apt-add-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"')
+        system('wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - ')
+        system('echo "deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian bionic contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+')
       end
 
-      system('wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add - ')
-      system('wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add - ')
       system('sudo apt update -y')
     end
   end
