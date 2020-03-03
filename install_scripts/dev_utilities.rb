@@ -43,12 +43,11 @@ def install_dev_software
     ubuntu: ['htop']
   )
 
-  subtitle 'Installing Git-cola, Meld, Gitg and Giggle Diff Viewer ...'
+  subtitle 'Installing Git-cola, Meld, Gitg Diff Viewer ...'
   install_packages(
     ubuntu: %w[
       git-cola
       meld
-      giggle
       gitg
     ]
   )
@@ -71,6 +70,11 @@ def install_dev_software
   subtitle 'Installing Jupyter QT console'
   install_packages(
     ubuntu: ['jupyter-qtconsole']
+  )
+
+  subtitle 'Installing DB SQLite Browser'
+  install_packages(
+    snap: %w[sqlitebrowser --edge]
   )
 
   subtitle 'Installing Universal CTAGS, a modern alternative to Exuberant ctags'

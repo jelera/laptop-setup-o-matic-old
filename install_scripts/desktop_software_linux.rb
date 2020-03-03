@@ -21,8 +21,16 @@ end
 def install_zeal
   if LinuxOS.is_ubuntu?
     system('sudo add-apt-repository -y ppa:zeal-developers/ppa')
-    system('sudo apt-get update -y')
+    system('sudo apt-get update')
     install_packages( ubuntu: ['zeal'] )
+  end
+end
+
+def install_ulauncher
+  if LinuxOS.is_ubuntu?
+    system('sudo add-apt-repository -y ppa:agornostal/ulauncher')
+    system('sudo apt-get update')
+    install_packages( ubuntu: ['ulauncher'] )
   end
 end
 
@@ -30,14 +38,14 @@ def install_wine
   system( 'wget -nc https://dl.winehq.org/wine-builds/winehq.key' )
   system('sudo apt-key add winehq.key')
   system("sudo apt-add-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'")
-  system('sudo apt update -y')
+  system('sudo apt update')
   system('sudo apt install --install-recommends -y winehq-stable')
 end
 
 def install_playonlinux
   system('wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -')
   system('sudo wget http://deb.playonlinux.com/playonlinux_bionic.list -O /etc/apt/sources.list.d/playonlinux.list')
-  system('sudo apt update -y')
+  system('sudo apt update')
   install_packages( ubuntu: ['playonlinux'] )
 end
 
@@ -107,6 +115,9 @@ def install_destkop_software
   subtitle 'Installing VLC Media Player ...'
   install_packages(snap: ['vlc'])
 
+  subtitle 'Installing OBS Studio ...'
+  install_packages(snap: ['obs-studio'])
+
   subtitle 'Installing Google Play Music Desktop Player ...'
   install_packages(snap: ['google-play-music-desktop-player'])
 
@@ -125,6 +136,12 @@ def install_destkop_software
   # -------------------------------------------------------------------------- #
   # => Utilities
   # -------------------------------------------------------------------------- #
+  subtitle 'Installing Geary, email client ...'
+  install_packages(flatpak: %w[org.gnome.Geary])
+
+  subtitle 'Installing Guake ...'
+  install_packages( ubuntu: ['guake'])
+
   subtitle 'Installing Rar, Unzip and other archiving utilities... '
   install_packages(
     ubuntu: %w[
