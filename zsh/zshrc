@@ -5,7 +5,7 @@
 #                / /    _   / /\__ \ | | | | | (__
 #               /_/    (_) /___|___/_| |_|_|  \___|
 #
-# Last Updated: Mon 02 Mar 2020 06:40:44 PM CST
+# Last Updated: Sat 07 Mar 2020 02:17:59 PM CST
 #
 #   Maintainer: Jose Elera (https://github.com/jelera)
 #
@@ -39,9 +39,9 @@
 ## => SOURCES
 ##
 ##---------------------------------------------------------------------------//
-source ~/.config/dotfiles/bash/alias
-source ~/.config/dotfiles/bash/shellscripts
-source ~/.config/dotfiles/bash/env
+source ~/.config/dotfiles/shell/alias
+source ~/.config/dotfiles/shell/shellscripts
+source ~/.config/dotfiles/shell/env
 
 
 ##---------------------------------------------------------------------------//
@@ -111,7 +111,7 @@ plugins=(
 	asdf
 	ruby
 	bundler
-	rails
+	# rails
 	yarn
 	npm
 )
